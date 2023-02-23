@@ -1,0 +1,23 @@
+---
+### DellEMC PowerStore
+################################################################################
+## PowerMax automation via Ansible                                           #
+################################################################################
+
+- name: Automate PoserMax resources
+  hosts: localhost
+  gather_facts: false
+
+  tasks:
+
+  - include: verify_connection_file.yml
+  - include: powermax_host.yml
+  - include: powermax_hostgroup.yml
+  - include: powermax_volume.yml
+  - include: powermax_storagegroup.yml
+  - include: powermax_portgroup.yml
+  - include: powermax_maskingview.yml
+  - include: powermax_snapshot.yml
+  - include: powermax_snapshotpolicy.yml
+  - include: powermax_rdfgroup.yml
+  - include: powermax_srdf.yml

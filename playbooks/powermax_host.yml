@@ -1,0 +1,31 @@
+- name: Host - Create Operation
+  include_role:
+    name: proautomate_powermax
+    tasks_from : powermax_host_create
+  when: 
+    - ps_demo.host is defined
+    - ps_demo.host.state == "present"  
+
+- name: Host - Delete Operation
+  include_role:
+    name: proautomate_powermax
+    tasks_from : powermax_host_delete
+  when: 
+    - ps_demo.host is defined
+    - ps_demo.host.state == "absent"  
+
+- name: Host - Rename Operation
+  include_role:
+    name: proautomate_powermax
+    tasks_from : powermax_host_rename
+  when: 
+    - ps_demo.host is defined
+    - ps_demo.host.state == "rename"   
+
+- name: Host - Update Operation
+  include_role:
+    name: proautomate_powermax
+    tasks_from : powermax_host_update
+  when: 
+    - ps_demo.host is defined
+    - ps_demo.host.state == "update"   
