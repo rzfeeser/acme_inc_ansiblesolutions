@@ -1,0 +1,29 @@
+---
+- name: Create host with host_flags
+  dellemc_powermax_host:
+    unispherehost: "{{unispherehost}}"
+    universion: "{{universion}}"
+    verifycert: "{{verifycert}}"
+    user: "{{user}}"
+    password: "{{password}}"
+    serial_no: "{{serial_no}}"
+    host_name: "{{ item.host_name }}"
+    initiators: "{{ item.initiators }}"
+    host_type: "default"
+    state: "present"
+    initiator_state: 'present-in-host'
+  with_items:
+    - "{{ ps_demo.host.hosts}}"
+
+- name: Getting the details of the host 
+  dellemc_powermax_host:
+    unispherehost: "{{unispherehost}}"
+    universion: "{{universion}}"
+    verifycert: "{{verifycert}}"
+    user: "{{user}}"
+    password: "{{password}}"
+    serial_no: "{{serial_no}}"
+    host_name: "{{ item.host_name }}"
+    state: 'present'
+  with_items:
+    - "{{ ps_demo.host.hosts}}"
